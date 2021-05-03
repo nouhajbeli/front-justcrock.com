@@ -34,6 +34,7 @@ import { EditRecetteComponent } from './components/edit-recette/edit-recette.com
 import { AvisComponent } from './components/avis/avis.component';
 import { AddAvisComponent } from './components/add-avis/add-avis.component';
 import { EditAvisComponent } from './components/edit-avis/edit-avis.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -72,14 +73,14 @@ import { EditAvisComponent } from './components/edit-avis/edit-avis.component';
     RouterModule,
     AppRoutingModule,
     MatCarouselModule.forRoot() ,// ---------- Important
-    NgxPaginationModule
-
+    NgxPaginationModule,
+    ToastrModule.forRoot()
 
 
   ],
   providers: [{ provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
-    multi: true,},AuthGuard,UserService],
+    multi: true},AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

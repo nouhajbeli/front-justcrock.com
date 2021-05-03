@@ -3,6 +3,7 @@ import {UserService} from './../../services/user.service'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-newpassword',
@@ -17,7 +18,7 @@ export class NewpasswordComponent implements OnInit {
   token:any
   serverErrorMessages:any;
   showSuccessMessage:any;
-    constructor(private myService: UserService,private formBuilder: FormBuilder,private router:Router,private activateroute: ActivatedRoute,) { }
+    constructor(private myService: UserService,private formBuilder: FormBuilder,private router:Router,private activateroute: ActivatedRoute,private toastr: ToastrService) { }
 
     ngOnInit(): void {
       this.token = this.activateroute.snapshot.params.token;
@@ -40,14 +41,17 @@ export class NewpasswordComponent implements OnInit {
         .NewService(this.registerForm.value,this.token)
         .subscribe(
           (res:any)  =>{
-            this.showSuccessMessage=true
-            setTimeout(()=>this.showSuccessMessage=false,4000)
-            this.router.navigateByUrl('/login')
+            console.log(res)
+
+          this.router.navigateByUrl('/connect')
+
           },
-                err =>{
-                  this.serverErrorMessages=err.error.error
-                   console.log(err)
-                }
+          err =>{
+            console.log(err)
+            this.toastr.error(err.error.error)
+
+
+          }
 
 
 

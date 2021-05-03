@@ -37,7 +37,7 @@ export class EditRecetteComponent implements OnInit {
         temps_Preparation: [data.temps_Preparation],
         nombre_personne: [data.nombre_personne],
         temps_cuisson: [data.temps_cuisson],
-        image: [''],
+        Photo: [data.Photo],
       });
     });
   }
@@ -51,12 +51,13 @@ export class EditRecetteComponent implements OnInit {
     this.id = this.activateroute.snapshot.params.id;
     this.myservice.getrecetteById(this.id).subscribe((data: any) => {console.log(data)});
     console.log(this.data)
-    if(this.loginForm.image===''){
-      this.loginForm.image =this.data.Photo
-    }else{
-      this.loginForm.image = this.files[0];
-    }
-    console.log(this.loginForm.image);
+  if(! this.files[0]){
+    this.loginForm.Photo = this.loginForm.value.Photo;
+
+  }else {
+    this.loginForm.Photo = this.files[0];
+
+  }
 
     this.myservice
       .editService(
@@ -66,12 +67,11 @@ export class EditRecetteComponent implements OnInit {
         this.loginForm.value.temps_Preparation,
         this.loginForm.value.nombre_personne,
         this.loginForm.value.temps_cuisson,
-        this.loginForm.image,
+        this.loginForm.Photo,
         this.id
       )
       .subscribe((data) => {
-        console.log(this.loginForm.image);
-        console.log('recette updated', data);
+        this.router.navigate(['/recette'])
       });
   }
 }

@@ -7,6 +7,5 @@ import { Meta } from '@angular/platform-browser';
 })
 export class AppComponent {
   constructor(private metaTagService: Meta){
-
   }
 }

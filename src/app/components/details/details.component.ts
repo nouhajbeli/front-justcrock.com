@@ -5,6 +5,7 @@ import { RecetteService } from './../../services/recette.service';
 import { UserService } from './../../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
+import { Profile } from './profile.model';
 
 @Component({
   selector: 'app-details',
@@ -22,7 +23,7 @@ export class DetailsComponent implements OnInit {
   @Output() ratingClick: EventEmitter<any> = new EventEmitter<any>();
   text: any;
   edit: boolean = false;
-  userDetails: any;
+  userDetails: Profile;
   registerForm: any;
   submitted = false;
   inputName: any;
@@ -38,7 +39,10 @@ export class DetailsComponent implements OnInit {
     private router: Router,
     private myService: UserService,
     private formBuilder: FormBuilder
-  ) {}
+  ) {
+    this.userDetails = new Profile();
+
+  }
 
   ngOnInit(): void {
     this.titleService.setTitle('recette details');

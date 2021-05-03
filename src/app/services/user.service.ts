@@ -6,13 +6,14 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 })
 export class UserService {
   http: HttpClient;
+  urlApi = 'http://localhost:3000/api';
 noAuthHeader={headers:new HttpHeaders({'NoAuth':'True'})}
   constructor(private httpClient: HttpClient) {
     this.http = httpClient;
 
   }
   login(authCredentials:any){
-    return this.http.post('http://localhost:3000/api/user/authenticate',authCredentials,this.noAuthHeader)
+    return this.http.post(this.urlApi+'/user/authenticate',authCredentials,this.noAuthHeader)
   }
   setToken(token:any){
     localStorage.setItem('token',token)
@@ -33,7 +34,7 @@ noAuthHeader={headers:new HttpHeaders({'NoAuth':'True'})}
     }
   }
   getUserProfile(){
-    return this.http.get('http://localhost:3000/api/user/userProfile')
+    return this.http.get(this.urlApi+'/user/userProfile')
   }
 
   isLoggedIn(){
@@ -45,34 +46,34 @@ noAuthHeader={headers:new HttpHeaders({'NoAuth':'True'})}
     }
   }
   resetService(body:any){
-    return this.http.post('http://localhost:3000/api/user/reset-password',body)
+    return this.http.post(this.urlApi+'/user/reset-password',body)
 
   }
   NewService(body:any,token:any){
-    return this.http.post('http://localhost:3000/api/user/newpassword/'+token,body)
+    return this.http.post(this.urlApi+'/user/newpassword/'+token,body)
 
   }
   getIdService(id:any){
-    return this.http.get('http://localhost:3000/api/user/userProfileId/'+id)
+    return this.http.get(this.urlApi+'/user/userProfileId/'+id)
 
   }
   getAllService(){
-    return this.http.get('http://localhost:3000/api/user/getUsers')
+    return this.http.get(this.urlApi+'/user/getUsers')
 
   }
   sendService(body:any){
-    return this.http.post('http://localhost:3000/api/contact/sendEmail',body)
+    return this.http.post(this.urlApi+'/contact/sendEmail',body)
 
   }
   changeService(image:any,id:any){
     const body = new FormData();
     body.append('id', id);
     body.append('file', image);
-    return this.http.put('http://localhost:3000/api/user/editimage', body);
+    return this.http.put(this.urlApi+'/user/editimage', body);
 
   }
   deleteAvisService(id:any){
-    return this.http.delete('http://localhost:3000/api/avis/'+id);
+    return this.http.delete(this.urlApi+'/avis/'+id);
 
   }
 

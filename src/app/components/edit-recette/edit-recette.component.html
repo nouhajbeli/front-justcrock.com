@@ -14,46 +14,46 @@
   "
 >
 <div>
-  <form [formGroup]="loginForm"
+  <form  *ngIf="this.loginForm" [formGroup]="loginForm"
 (ngSubmit)="editrecette()" class="row g-3" style="margin:0 10%; padding: 10%; background-color: rgb(255, 255, 255); border-radius: 0.2rem;">
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label" style="color: black ; font-weight:bolder;">Description:</label>
-    <input type="email" class="form-control" id="inputEmail4"     formControlName="description" style="border:1px solid black "
+    <label  class="form-label" style="color: black ; font-weight:bolder;">Description:</label>
+    <input type="text" class="form-control"     formControlName="description" style="border:1px solid black "
     >
   </div>
   <div class="col-md-6">
-    <label for="inputPassword4" class="form-label" style="color: black ; font-weight:bolder;">Ingrédients</label>
-    <input type="text" class="form-control" id="inputPassword4"     formControlName="ingredient" style="border:1px solid black "
+    <label  class="form-label" style="color: black ; font-weight:bolder;">Ingrédients</label>
+    <input type="text" class="form-control"     formControlName="ingredient" style="border:1px solid black "
     >
   </div>
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label" style="color: black ; font-weight:bolder;">Mode de préparation:</label>
-    <input type="email" class="form-control" id="inputEmail4"       formControlName="preparation" style="border:1px solid black "
+    <label  class="form-label" style="color: black ; font-weight:bolder;">Mode de préparation:</label>
+    <input type="text" class="form-control"       formControlName="preparation" style="border:1px solid black "
     >
   </div>
   <div class="col-md-6">
-    <label for="inputPassword4" class="form-label" style="color: black ; font-weight:bolder;">Temps de Préparation:</label>
-    <input type="text" class="form-control" id="inputPassword4"     formControlName="temps_Preparation" style="border:1px solid black "
+    <label class="form-label" style="color: black ; font-weight:bolder;">Temps de Préparation:</label>
+    <input type="text" class="form-control"     formControlName="temps_Preparation" style="border:1px solid black "
     >
   </div>
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label" style="color: black ; font-weight:bolder;">Temps de cuisson:</label>
-    <input type="email" class="form-control" id="inputEmail4"      formControlName="temps_cuisson" style="border:1px solid black "
+    <label  class="form-label" style="color: black ; font-weight:bolder;">Temps de cuisson:</label>
+    <input type="text" class="form-control"      formControlName="temps_cuisson" style="border:1px solid black "
     >
   </div>
   <div class="col-md-6">
-    <label for="inputPassword4" class="form-label" style="color: black ; font-weight:bolder;">Nombre de personne:</label>
-    <input type="text" class="form-control" id="inputPassword4"     formControlName="nombre_personne" style="border:1px solid black "
+    <label class="form-label" style="color: black ; font-weight:bolder;">Nombre de personne:</label>
+    <input type="text" class="form-control"      formControlName="nombre_personne" style="border:1px solid black "
     >
   </div>
   <div class="form-group">
-    <label for="image"style="color: black ; font-weight:bolder;"
+    <label for="Photo"style="color: black ; font-weight:bolder;"
     >Image:</label>
     <input
-      formControlName="image"
+      formControlName="Photo"
       (change)="onSelectimage($event)"
       type="file"
-      name="image"
+      name="Photo"
       style="padding:1%;"
       accept="image/png, image/jpeg"
     />

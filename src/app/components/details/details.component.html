@@ -105,7 +105,7 @@
 
         <div class="col-md-7">
           <img
-            src="assets/uploads/recettes/{{ recette.Photo }}"
+            [src]="recette.Photo"
             class="rounded"
           />
         </div>
@@ -126,7 +126,7 @@
           <div *ngFor="let user of users">
             <img
               *ngIf="user.id === comment.UserId"
-              src="assets/uploads/images/{{user.imageUrl}}"
+              [src]="user.imageUrl"
               class="rounded-circle avatar-xl img-thumbnail"
               alt="profile-image"
               style="width: 50px"
@@ -144,16 +144,17 @@
             {{ comment.commentaire }}
             <i
               class="far fa-trash-alt"
-              *ngIf="userDetails.id === comment.UserId"
+              *ngIf="userDetails.id === comment.UserId || userDetails.role==='admin'"
               (click)="deleteComment(comment.id)"
             ></i>
             <i
               class="fas fa-edit"
-              *ngIf="userDetails.id === comment.UserId"
+              *ngIf="userDetails.id === comment.UserId || userDetails.role==='admin'"
               (click)="change()"
             ></i>
             <form
-              *ngIf="edit && comment.UserId === userDetails.id"
+              *ngIf="edit && comment.UserId === userDetails.id  || edit && userDetails.role==='admin'"
+
               className="edit-comment-form"
             >
               <br />

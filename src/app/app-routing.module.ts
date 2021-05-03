@@ -1,4 +1,3 @@
-import { TmplAstBoundAttribute } from '@angular/compiler';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import  {AboutComponent} from './components/about/about.component'
@@ -26,18 +25,16 @@ const routes: Routes = [
   {path:'recette',component:RecettesComponent},
   {path:'addrecette',component:AddrecetteComponent},
   {path:'sign-up',component:SignUpComponent},
-  {path:'login',component:LoginComponent},
   {path:'userProfile',component:UserProfileComponent,canActivate:[AuthGuard] },
-  {path:'details/:id',component:DetailsComponent,pathMatch: 'full' },
+  {path:'details/:id',component:DetailsComponent },
    {path:'chat',component:ChatComponent},
    {path:'reset',component:ResetPComponent},
    {path:'newpassword/:token',component:NewpasswordComponent},
   {path:'edit/:id',component:EditRecetteComponent},
   {path:'avis',component:AvisComponent},
   {path:'addAvis',component:AddAvisComponent},
-  {path:'editAvis/:id',component:EditAvisComponent}
-
-
+  {path:'editAvis/:id',component:EditAvisComponent},
+  {path:'connect',component:LoginComponent},
 
 ];
 

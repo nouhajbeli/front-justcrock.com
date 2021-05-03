@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from './../../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ export class ContactComponent implements OnInit {
   submitted:any;
   showSuccessMessage:any=false;
   serverErrorMessages:any
-  constructor(private myService:UserService,private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private myService:UserService,private formBuilder: FormBuilder, private router: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
      this.contactForm = this.formBuilder.group({
@@ -34,20 +34,21 @@ onSubmit() {
   if (this.contactForm.invalid) {
       return;
   }
-  this.obj={
-   nom: this.contactForm.value.nom,
-   email: this.contactForm.value.email,
-   message: this.contactForm.value.message,
-  }
-  this.myService
-      .sendService(this.obj)
-      .subscribe((data) => {
-        this.showSuccessMessage=true;
-        setTimeout(()=>this.showSuccessMessage=false,4000)
-        console.log('mail sent', data);
-        this.router.navigate(['home'])
 
-         });
+  this.myService
+      .sendService(this.contactForm.value)
+      .subscribe(
+
+        (res:any)  =>{
+          this.toastr.success("Email  Envoyer")
+
+            },
+        err =>{
+          this.toastr.error("votre email n'est pas envoyer ")
+
+
+        }
+         );
   // display form values on success
 }
 

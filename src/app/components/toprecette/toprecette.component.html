@@ -8,10 +8,12 @@
 <section  class="menu" id="menu" >
 
   <div class="content" >
-    <div class="box" *ngFor="let recette of recettes ||myArray ; let i = index" >
-      <div class="imgBx" *ngIf="i < 6">
+    <div *ngFor="let recette of recettes|| myArray  ; let i = index" >
+    <div class="box" *ngIf="i<6" >
+
+      <div class="imgBx" >
         <img [routerLink]="['/details', recette.Id_recette]"
-        src="assets/uploads/recettes/{{ recette.Photo }}">
+        [src]="recette.Photo">
 
       </div>
       <div class="text">
@@ -21,8 +23,9 @@
         style="font-size: 20px; color: #ffc107"
         [readonly]="true"
       ></ngb-rating>
-        <h3>{{recette.Description}}</h3>
+
       </div>
+    </div>
     </div>
 
 

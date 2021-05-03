@@ -27,15 +27,12 @@
 
         <div
           class="col-12 col-md-6 col-lg-3"
-          *ngFor="
-            let recette of recettes || myArray
-              | paginate: { itemsPerPage: 4, currentPage: p }
-          "
+          *ngFor=" let recette of  myArray | paginate: { itemsPerPage: 4, currentPage: p } "
         >
           <div class="card recette" style="border: 1px solid white">
             <img
               [routerLink]="['/details', recette.Id_recette]"
-              src="assets/uploads/recettes/{{ recette.Photo }}"
+              [src]="recette.Photo"
               class="card-img-top"
               alt="..."
               style="width: 100%; height: 200px"
@@ -47,9 +44,7 @@
                 style="font-size: 20px; color: #ffc107"
                 [readonly]="true"
               ></ngb-rating>
-              <p class="card-text" style="color: white">
-                {{ recette.Description }}
-              </p>
+            
               <ng-template #content let-c="close" let-d="dismiss">
                 <div class="modal-header">
                   <h4 class="modal-title" id="modal-basic-title">Confirmation!</h4>

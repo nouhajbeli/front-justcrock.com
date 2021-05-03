@@ -1,11 +1,13 @@
+@media (max-width: 400px) {
 
+}
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 #expert {
     background: #eee !important;
     margin:100px 100px 100px   100px;
 
 }
-.btn{
+/* .btn{
   font-size:1em;
   color:#fff;
   background:#458C41;
@@ -16,7 +18,7 @@
   text-decoration: none;
   Letter-spacing:2px;
   transition:2s
-}
+} */
 .btn:hover
 {
 Letter-spacing:6px;

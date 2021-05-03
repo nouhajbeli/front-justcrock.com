@@ -14,6 +14,7 @@ export class AvisComponent implements OnInit {
 avis:any
 users:any
 userDetails:Profile;
+token:any =localStorage.getItem('token')
 constructor(private myService: RecetteService,private userService:UserService,private sanitizer: DomSanitizer, private router: Router) {
   this.userDetails = new Profile();
 

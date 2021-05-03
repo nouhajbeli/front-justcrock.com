@@ -25,7 +25,9 @@ import {UserService} from './../../services/user.service'
      recettes:any=[]
     constructor(private myService: RecetteService,private userService:UserService,private sanitizer: DomSanitizer, private router: Router
       ) {
-
+        this.myService.getServiceRates().subscribe((res:any)=>{
+          this.rates=res
+        })
       }
     cards = [
       {
@@ -92,10 +94,18 @@ import {UserService} from './../../services/user.service'
       return R;
     }
     ngOnInit() {
-      this.myService.getServiceRates().subscribe((res:any)=>{
-        this.rates=res
+
+      this.myService.getService().subscribe((data:any) => {
+        this.myArray = data;
+
+        this.recettes = this.myArray
+    .sort(function (a: any, b: any) {
+
+        return b- a;
+      }
+    );
       })
-     this.getRecette()
+
       this.slides = this.chunk(this.cards, 3);
 
       if (window.innerWidth <= this.CAROUSEL_BREAKPOINT) {
@@ -115,36 +125,6 @@ import {UserService} from './../../services/user.service'
     }
     getRecette(){
 
-      this.myService.getService().subscribe((data:any) => {
-        this.myArray = data;
-
-        this.recettes = this.myArray.map((recette: any) => {
-          var sum = 0;
-           var nbr=0
-
-      this.rates.map((rate: any) => {
-        if(rate.Id_recette == recette.Id_recette){
-          sum = sum +Number( rate.rates)
-          nbr=nbr+1
-
-        }
-
-      })
-
-      recette['averagerate'] = (sum /nbr).toFixed(1);
-      return recette;
-    })
-    .sort(function (a: any, b: any) {
-      if (a.averagerate === 'NaN') {
-        return 1;
-      } else if (b.averagerate === 'NaN') {
-        return -1;
-      } else {
-        return b.averagerate - a.averagerate;
-      }
-    });
-   console.log(this.myArray)
-      })
 
     }
 

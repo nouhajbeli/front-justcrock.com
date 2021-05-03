@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SignUpService} from './../../services/sign-up.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-up',
@@ -18,7 +19,7 @@ role:any="user";
 serverErrorMessages:any;
 showSuccessMessage:any
 
-  constructor(private myService: SignUpService,private formBuilder: FormBuilder,private router:Router) { }
+  constructor(private myService: SignUpService,private formBuilder: FormBuilder,private router:Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -46,18 +47,16 @@ showSuccessMessage:any
         this.role
     )
       .subscribe( (res:any)  =>{
-
-
-        this.showSuccessMessage=true
         setTimeout(()=>this.showSuccessMessage=false,4000)
-      this.router.navigateByUrl('/login')
+      this.router.navigateByUrl('/connect')
+    },
+      err =>{
+        if(err.status=== 409)
+        this.toastr.error(err.error.error)
+        else
+        this.toastr.error('something went wrong .Please contact admin')
 
-      },
-            err =>{
-              console.log(err.error)
-              this.serverErrorMessages=err.error.error
-
-            })
+      })
   }
 
 }
