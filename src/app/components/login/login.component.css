@@ -5,12 +5,14 @@ body {
   height:100%;
 }
 #login .container #login-row #login-column #login-box {
-  margin-top: 120px;
+  /* margin-top: 120px;
   max-width: 600px;
   width: 400px;
-  margin-left:70px;
+  margin-left:70px; */
 
-  height: 450px;
+  /* height: 450px; */
+  padding: 10%;
+  margin:25% 0;
   border: 1px solid #9C9C9C;
   background-color: rgba(0, 0, 0, 0.5);
 }
