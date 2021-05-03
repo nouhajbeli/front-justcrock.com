@@ -1,9 +1,13 @@
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, HostListener } from '@angular/core';
+
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import { MatCarousel, MatCarouselComponent } from '@ngmodule/material-carousel'; // -------- important
-
-import { Component, OnInit, HostListener } from '@angular/core';
+import {RecetteService} from './../../services/recette.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import {UserService} from './../../services/user.service'
 
 @Component({
   selector: 'app-cards',
@@ -13,7 +17,18 @@ import { Component, OnInit, HostListener } from '@angular/core';
   export class CardsComponent implements OnInit {
     CAROUSEL_BREAKPOINT = 768;
     carouselDisplayMode = 'multiple';
-
+    myArray: any = [];
+    file: any;
+    categorie:any
+    serverErrorMessages:any;
+    rates:any;
+     recettes:any=[]
+    constructor(private myService: RecetteService,private userService:UserService,private sanitizer: DomSanitizer, private router: Router
+      ) {
+        this.myService.getServiceRates().subscribe((res:any)=>{
+          this.rates=res
+        })
+      }
     cards = [
       {
         title: 'Card Title 1',
@@ -79,6 +94,18 @@ import { Component, OnInit, HostListener } from '@angular/core';
       return R;
     }
     ngOnInit() {
+
+      this.myService.getService().subscribe((data:any) => {
+        this.myArray = data;
+
+        this.recettes = this.myArray
+    .sort(function (a: any, b: any) {
+
+        return b- a;
+      }
+    );
+      })
+
       this.slides = this.chunk(this.cards, 3);
 
       if (window.innerWidth <= this.CAROUSEL_BREAKPOINT) {
@@ -95,6 +122,15 @@ import { Component, OnInit, HostListener } from '@angular/core';
       } else {
         this.carouselDisplayMode = 'multiple';
       }
+    }
+    getRecette(){
+
+
+    }
+
+
+    getrecette(id:any){
+      this.router.navigate(['details',  id])
     }
 
   }

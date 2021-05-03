@@ -1,0 +1,57 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<app-navbar></app-navbar>
+<body>
+<section >
+  <br/> <br/>
+  <div class="box">
+    <div class="container">
+      <button class="btn1" routerLink="/addAvis" *ngIf="token!=null" >
+        Ajouter Avis<i class="fa fa-plus"></i>
+      </button>
+      <br/> <br/>
+     	<div class="row">
+
+        <div class="col-12 col-md-6 col-lg-3 " *ngFor="let member of avis">
+          <div class="card recette" style="border: 1px solid white;min-height: 350px;max-height: 350px;" >
+            <div *ngFor="let user of users">
+              <img  class="rounded-circle avatar-xl img-thumbnail" style="color:white ;margin-left:80px;width:100px "
+              *ngIf="user.id === member.UserId"  [src]="user.imageUrl" alt="card image">
+              <div class="title" style="margin-left:50px">
+                <h4  *ngIf="user.id === member.UserId">{{user.fullName}}</h4>
+              </div>
+            </div>
+            <div class="card-body" style="height: 200px;" >
+
+              <p class="card-text" >
+                {{ member.avis }}
+              </p>
+
+              <a
+
+              (click)="deleteavis(member.id)"
+              ><i class="fas fa-trash-alt" *ngIf="userDetails.role==='admin'||userDetails.id===member.UserId"></i
+            ></a>
+            <a>  <i
+              class="fa fa-check"
+              (click)="editAvis( member.id)"
+              aria-hidden="true" *ngIf="userDetails.role==='admin'||userDetails.id===member.UserId"
+            ></i></a>
+              <br />
+            </div>
+          </div>
+        </div>
+
+		</div>
+    </div>
+</div>
+<!-- Team -->
+</section>
+
+<app-footer></app-footer>
+
+
+
+
+

@@ -1,0 +1,68 @@
+0 verbose cli [
+0 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
+0 verbose cli   'C:\\Users\\Yasser Sahli\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+0 verbose cli   'install',
+0 verbose cli   '@ng-toolkit/universal@1.1.21',
+0 verbose cli   '--quiet'
+0 verbose cli ]
+1 info using npm@7.11.1
+2 info using node@v14.16.0
+3 timing npm:load:whichnode Completed in 2ms
+4 timing config:load:defaults Completed in 1ms
+5 timing config:load:file:C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\npmrc Completed in 1ms
+6 timing config:load:builtin Completed in 1ms
+7 timing config:load:cli Completed in 2ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:file:C:\Users\Yasser Sahli\Desktop\justcrock.com\front-justcrock.com\.npmrc Completed in 0ms
+10 timing config:load:project Completed in 1ms
+11 timing config:load:file:C:\Users\Yasser Sahli\.npmrc Completed in 0ms
+12 timing config:load:user Completed in 0ms
+13 timing config:load:file:C:\Users\Yasser Sahli\AppData\Roaming\npm\etc\npmrc Completed in 1ms
+14 timing config:load:global Completed in 1ms
+15 timing config:load:validate Completed in 0ms
+16 timing config:load:credentials Completed in 1ms
+17 timing config:load:setEnvs Completed in 1ms
+18 timing config:load Completed in 8ms
+19 timing npm:load:configload Completed in 8ms
+20 timing npm:load:setTitle Completed in 0ms
+21 timing npm:load:setupLog Completed in 0ms
+22 timing npm:load:cleanupLog Completed in 2ms
+23 timing npm:load:configScope Completed in 0ms
+24 timing npm:load:projectScope Completed in 1ms
+25 timing npm:load Completed in 13ms
+26 timing config:load:flatten Completed in 2ms
+27 timing arborist:ctor Completed in 0ms
+28 timing idealTree:init Completed in 546ms
+29 timing idealTree:userRequests Completed in 6ms
+30 silly idealTree buildDeps
+31 silly fetch manifest @ng-toolkit/universal@1.1.21
+32 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+33 http fetch GET 200 https://registry.npmjs.org/@ng-toolkit%2funiversal 3003ms
+34 silly placeDep ROOT @ng-toolkit/universal@1.1.21 OK for: front-end@0.0.0 want: 1.1.21
+35 silly fetch manifest @angular-devkit/core@^0.6.3
+36 silly fetch manifest @angular-devkit/schematics@^0.6.3
+37 silly fetch manifest @ng-toolkit/_utils@^1.1.21
+38 silly fetch manifest @schematics/angular@^0.6.3
+39 http fetch GET 200 https://registry.npmjs.org/@ng-toolkit%2f_utils 3296ms
+40 http fetch GET 200 https://registry.npmjs.org/@angular-devkit%2fcore 3357ms
+41 http fetch GET 200 https://registry.npmjs.org/@angular-devkit%2fschematics 4102ms
+42 http fetch GET 200 https://registry.npmjs.org/@schematics%2fangular 6677ms
+43 timing idealTree:#root Completed in 9700ms
+44 silly placeDep node_modules/@ng-toolkit/universal @angular-devkit/core@0.6.8 OK for: @ng-toolkit/universal@1.1.21 want: ^0.6.3
+45 silly placeDep node_modules/@ng-toolkit/universal @angular-devkit/schematics@0.6.8 OK for: @ng-toolkit/universal@1.1.21 want: ^0.6.3
+46 silly placeDep ROOT @ng-toolkit/_utils@1.1.51 OK for: @ng-toolkit/universal@1.1.21 want: ^1.1.21
+47 silly placeDep node_modules/@ng-toolkit/universal @schematics/angular@0.6.8 OK for: @ng-toolkit/universal@1.1.21 want: ^0.6.3
+48 silly fetch manifest ajv@~6.4.0
+49 silly fetch manifest chokidar@^2.0.3
+50 silly fetch manifest @angular-devkit/core@^7.0.0
+51 silly fetch manifest @angular-devkit/schematics@^7.0.0
+52 silly fetch manifest @schematics/angular@^7.0.0
+53 silly fetch manifest bugsnag@^2.3.1
+54 silly fetch manifest typescript@>=2.6.2 <2.8
+55 http fetch GET 200 https://registry.npmjs.org/chokidar 801ms
+56 http fetch GET 200 https://registry.npmjs.org/bugsnag 1172ms
+57 http fetch GET 200 https://registry.npmjs.org/ajv 1600ms
+58 timing npm Completed in 30959ms
+59 error cb() never called!
+60 error This is an error with npm itself. Please report this error at:
+61 error <https://github.com/npm/cli/issues>

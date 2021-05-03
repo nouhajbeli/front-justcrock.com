@@ -1,0 +1,95 @@
+0 verbose cli [
+0 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
+0 verbose cli   'C:\\Users\\Yasser Sahli\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+0 verbose cli   'install',
+0 verbose cli   '@nguniversal/express-engine@11.2.1',
+0 verbose cli   '--quiet'
+0 verbose cli ]
+1 info using npm@7.11.1
+2 info using node@v14.16.0
+3 timing npm:load:whichnode Completed in 2ms
+4 timing config:load:defaults Completed in 1ms
+5 timing config:load:file:C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\npmrc Completed in 1ms
+6 timing config:load:builtin Completed in 1ms
+7 timing config:load:cli Completed in 2ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:file:C:\Users\Yasser Sahli\Desktop\justcrock.com\front-justcrock.com\.npmrc Completed in 0ms
+10 timing config:load:project Completed in 1ms
+11 timing config:load:file:C:\Users\Yasser Sahli\.npmrc Completed in 1ms
+12 timing config:load:user Completed in 1ms
+13 timing config:load:file:C:\Users\Yasser Sahli\AppData\Roaming\npm\etc\npmrc Completed in 0ms
+14 timing config:load:global Completed in 0ms
+15 timing config:load:validate Completed in 0ms
+16 timing config:load:credentials Completed in 1ms
+17 timing config:load:setEnvs Completed in 1ms
+18 timing config:load Completed in 8ms
+19 timing npm:load:configload Completed in 9ms
+20 timing npm:load:setTitle Completed in 0ms
+21 timing npm:load:setupLog Completed in 1ms
+22 timing npm:load:cleanupLog Completed in 2ms
+23 timing npm:load:configScope Completed in 0ms
+24 timing npm:load:projectScope Completed in 0ms
+25 timing npm:load Completed in 14ms
+26 timing config:load:flatten Completed in 2ms
+27 timing arborist:ctor Completed in 1ms
+28 timing idealTree:init Completed in 553ms
+29 timing idealTree:userRequests Completed in 6ms
+30 silly idealTree buildDeps
+31 silly fetch manifest @nguniversal/express-engine@11.2.1
+32 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+33 http fetch GET 304 https://registry.npmjs.org/@nguniversal%2fexpress-engine 818ms (from cache)
+34 silly fetch manifest @angular/common@~11.2.4
+35 http fetch GET 304 https://registry.npmjs.org/@angular%2fcommon 135ms (from cache)
+36 silly fetch manifest @angular/core@~11.2.4
+37 http fetch GET 304 https://registry.npmjs.org/@angular%2fcore 126ms (from cache)
+38 silly fetch manifest rxjs@~6.6.0
+39 http fetch GET 304 https://registry.npmjs.org/rxjs 112ms (from cache)
+40 silly fetch manifest zone.js@~0.11.3
+41 http fetch GET 304 https://registry.npmjs.org/zone.js 115ms (from cache)
+42 silly fetch manifest @angular/platform-server@^11.2.4
+43 http fetch GET 304 https://registry.npmjs.org/@angular%2fplatform-server 122ms (from cache)
+44 silly fetch manifest @angular/animations@~11.2.4
+45 http fetch GET 304 https://registry.npmjs.org/@angular%2fanimations 161ms (from cache)
+46 silly fetch manifest @angular/compiler@~11.2.4
+47 http fetch GET 304 https://registry.npmjs.org/@angular%2fcompiler 137ms (from cache)
+48 silly fetch manifest @angular/platform-browser@~11.2.4
+49 http fetch GET 304 https://registry.npmjs.org/@angular%2fplatform-browser 129ms (from cache)
+50 silly fetch manifest @angular/platform-browser-dynamic@~11.2.4
+51 http fetch GET 304 https://registry.npmjs.org/@angular%2fplatform-browser-dynamic 123ms (from cache)
+52 silly fetch manifest express@^4.15.2
+53 http fetch GET 304 https://registry.npmjs.org/express 100ms (from cache)
+54 timing idealTree Completed in 2679ms
+55 timing command:install Completed in 2682ms
+56 verbose stack Error: unable to resolve dependency tree
+56 verbose stack     at Arborist.[failPeerConflict] (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:1220:25)
+56 verbose stack     at Arborist.[placeDep] (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:1323:32)
+56 verbose stack     at C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:904:46
+56 verbose stack     at Array.map (<anonymous>)
+56 verbose stack     at Arborist.[buildDepStep] (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:904:8)
+56 verbose stack     at async Arborist.buildIdealTree (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:217:7)
+56 verbose stack     at async Promise.all (index 1)
+56 verbose stack     at async Arborist.reify (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\reify.js:135:5)
+56 verbose stack     at async Install.install (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\lib\install.js:137:5)
+57 verbose cwd C:\Users\Yasser Sahli\Desktop\justcrock.com\front-justcrock.com
+58 verbose Windows_NT 10.0.18363
+59 verbose argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Yasser Sahli\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "install" "@nguniversal/express-engine@11.2.1" "--quiet"
+60 verbose node v14.16.0
+61 verbose npm  v7.11.1
+62 error code ERESOLVE
+63 error ERESOLVE unable to resolve dependency tree
+64 error
+65 error Could not resolve dependency:
+65 error @nguniversal/express-engine@"11.2.1" from the root project
+65 error
+65 error Conflicting peer dependency: @angular/platform-server@11.2.11
+65 error node_modules/@angular/platform-server
+65 error   peer @angular/platform-server@"^11.2.4" from @nguniversal/express-engine@11.2.1
+65 error   node_modules/@nguniversal/express-engine
+65 error     @nguniversal/express-engine@"11.2.1" from the root project
+65 error
+65 error Fix the upstream dependency conflict, or retry
+65 error this command with --force, or --legacy-peer-deps
+65 error to accept an incorrect (and potentially broken) dependency resolution.
+65 error
+65 error See C:\Users\Yasser Sahli\Desktop\justcrock.com\front-justcrock.com\eresolve-report.txt for a full report.
+66 verbose exit 1

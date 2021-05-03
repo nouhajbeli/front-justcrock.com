@@ -1,0 +1,10 @@
+
+form{
+  padding: 10%;
+  }
+
+  @media (min-width: 800px) {
+    .col-12{
+      padding:0 45%;
+    }
+  }

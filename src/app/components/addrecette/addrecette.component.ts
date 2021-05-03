@@ -23,7 +23,9 @@ export class AddrecetteComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       titre: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      temps_Préparation:['', [Validators.required]],
+      ingredient: ['', [Validators.required]],
+      preparation: ['', [Validators.required]],
+      temps_Preparation:['', [Validators.required]],
       nombre_personne:['', [Validators.required]],
       temps_cuisson:['', [Validators.required]],
       image: ['', [Validators.required]],
@@ -50,7 +52,9 @@ export class AddrecetteComponent implements OnInit {
     this.myservice
       .addService(
         this.loginForm.value.description,
-        this.loginForm.value.temps_Préparation,
+        this.loginForm.value.ingredient,
+        this.loginForm.value.preparation,
+        this.loginForm.value.temps_Preparation,
         this.loginForm.value.temps_cuisson,
         this.loginForm.value.nombre_personne,
         this.loginForm.image,
@@ -58,6 +62,8 @@ export class AddrecetteComponent implements OnInit {
       .subscribe((data) => {
         console.log(this.loginForm.image)
         console.log('recette added', data);
+                this.router.navigate(['recette'])
+
 
       });
   }

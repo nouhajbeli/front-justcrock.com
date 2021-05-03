@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+
+<div
+  id="add"
+  style="
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+      url('https://res.cloudinary.com/dtl8igxn0/image/upload/v1615412080/copie_xkud7i.jpg');
+    background-size: cover; padding : 10%
+  "
+>
+<div>
+  <form  *ngIf="this.loginForm" [formGroup]="loginForm"
+(ngSubmit)="editrecette()" class="row g-3" style="margin:0 10%; padding: 10%; background-color: rgb(255, 255, 255); border-radius: 0.2rem;">
+  <div class="col-md-6">
+    <label  class="form-label" style="color: black ; font-weight:bolder;">Description:</label>
+    <input type="text" class="form-control"     formControlName="description" style="border:1px solid black "
+    >
+  </div>
+  <div class="col-md-6">
+    <label  class="form-label" style="color: black ; font-weight:bolder;">Ingrédients</label>
+    <input type="text" class="form-control"     formControlName="ingredient" style="border:1px solid black "
+    >
+  </div>
+  <div class="col-md-6">
+    <label  class="form-label" style="color: black ; font-weight:bolder;">Mode de préparation:</label>
+    <input type="text" class="form-control"       formControlName="preparation" style="border:1px solid black "
+    >
+  </div>
+  <div class="col-md-6">
+    <label class="form-label" style="color: black ; font-weight:bolder;">Temps de Préparation:</label>
+    <input type="text" class="form-control"     formControlName="temps_Preparation" style="border:1px solid black "
+    >
+  </div>
+  <div class="col-md-6">
+    <label  class="form-label" style="color: black ; font-weight:bolder;">Temps de cuisson:</label>
+    <input type="text" class="form-control"      formControlName="temps_cuisson" style="border:1px solid black "
+    >
+  </div>
+  <div class="col-md-6">
+    <label class="form-label" style="color: black ; font-weight:bolder;">Nombre de personne:</label>
+    <input type="text" class="form-control"      formControlName="nombre_personne" style="border:1px solid black "
+    >
+  </div>
+  <div class="form-group">
+    <label for="Photo"style="color: black ; font-weight:bolder;"
+    >Image:</label>
+    <input
+      formControlName="Photo"
+      (change)="onSelectimage($event)"
+      type="file"
+      name="Photo"
+      style="padding:1%;"
+      accept="image/png, image/jpeg"
+    />
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary"     style="background-color: #288b16; border:none;width:100%"
+    >Modifier</button>
+  </div>
+</form>
+</div>
+</div>
+<app-footer></app-footer>

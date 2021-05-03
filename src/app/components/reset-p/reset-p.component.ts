@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from './../../services/user.service'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router'
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-reset-p',
   templateUrl: './reset-p.component.html',
@@ -11,7 +13,9 @@ export class ResetPComponent implements OnInit {
   email:any;
   registerForm: any;
   submitted = false;
-    constructor(private myService: UserService,private formBuilder: FormBuilder,private router:Router) { }
+  serverErrorMessages:any;
+  showSuccessMessage:any
+    constructor(private myService: UserService,private formBuilder: FormBuilder,private router:Router,private toastr: ToastrService) { }
 
     ngOnInit(): void {
       this.registerForm = this.formBuilder.group({
@@ -30,10 +34,15 @@ export class ResetPComponent implements OnInit {
         }
         this.myService
         .resetService(this.registerForm.value)
-        .subscribe((data:any) => {
-          console.log(data)
-          // this.router.navigateByUrl('/login')
+        .subscribe( (res:any)  =>{
+          console.log(res)
+          this.showSuccessMessage="email envoyer verifier votre email"
+          this.toastr.success("Email  Envoyer")
 
+            },
+        err =>{
+          console.log(err)
+          this.toastr.error(err.error.error)
 
 
         })

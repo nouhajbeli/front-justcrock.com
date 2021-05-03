@@ -1,94 +1,29 @@
-.titleText{
-  color:#111;
-  font-size:2em;
-  font-weight:300;
-  text-align:left;
-  margin-top:100px;
 
-}
-.titleText span{
-  color: #a6ff4d;
-  font-weight:700;
-  font-size:1.5em;
-  text-align:left;
-
-}
-.title {
-  width:100%;
-  display:flex;
-  justify-content: center;
-  align-items:center;
-  flex-direction :column;
-}
 .contact
 {
   background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://res.cloudinary.com/dtl8igxn0/image/upload/v1615412080/copie_xkud7i.jpg');
     background-size:cover;
     width:100%;
-    height:100%
+    height:100%;
+    padding:10% 30%;
 }
-.contactForm
- {
-   padding:75px;
-   background: rgba(0,0,0,0.01);
-
-   box-shadow: 0 15px 50px rgba(0,0,0,0.01);
-   max-width: 500px;
-   margin-top:50px;
-   margin-left:50px;
- }
-.contactForm h3 {
-  color:#111;
-  font-size:1.2em;
-  margin-bottom:20px;
-  font-weight: 500;
-}
-.contactForm .inputBox
- {
-   position:relative;
-   width:100%;
-   margin-bottom:20px;
- }
-.contactForm .inputBox
+@media (max-width: 500px) {
+  .contact
 {
-  position: relative;
-  width:100%;
-  margin-top: 20px;
+  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://res.cloudinary.com/dtl8igxn0/image/upload/v1615412080/copie_xkud7i.jpg');
+    background-size:cover;
+    width:100%;
+    height:100%;
+    padding:20% 8%;
 }
-.contactForm .inputBox input,
-.contactForm .inputBox textarea
+}
+@media (max-width: 600px) {
+  .contact
 {
-  width:100%;
-  border:1px solid #555;
-  padding:10px;
-  color:#111;
-  outline: none;
-  font-size:16px;
-  font-weight:300;
-  resize:none;
+  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://res.cloudinary.com/dtl8igxn0/image/upload/v1615412080/copie_xkud7i.jpg');
+    background-size:cover;
+    width:100%;
+    height:100%;
+    padding:20% 8%;
 }
-.contactForm .inputBox input[type="submit"]
-{
-  font-size:1em;
-  color:#fff;
-  background:#a6ff4d;
-  display:inline-block;
-  text-transform: uppercase;
-  text-decoration:none;
-  letter-spacing:2px;
-  transition:0.5s;
-  max-width:100px;
-  font-weight: 300;
-  border:none;
-  cursor:pointer;
-}
-@media (max-width:991px){
-  .contactForm{
-    padding:1px  40px;
-    margin-top:2px;
-    margin-bottom: 200px;
-  }
-  .titleText{
-  margin-top: 40px;
-  }
 }

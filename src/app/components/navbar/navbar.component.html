@@ -5,16 +5,13 @@
   <a  class="logo"><img src="../../../assets/img/logoGris.png" /></a>
   <div class="menuToggle" onclick="toggleMenu()"></div>
   <ul class="navigation">
-     <li><a routerLink='/home' >    Accueil</a></li>
+     <li><a routerLink='/home' > Accueil</a></li>
      <li><a routerLink='/recette' >Recettes</a></li>
+     <li><a routerLink='/avis' >Avis</a></li>
     <li><a routerLink="/chat">Chat </a></li>
     <li ><a routerLink='/contact'>Nous contacter  </a></li>
-
-
-    <li ><a routerLink='/login'> Login </a></li>
-
-
-
+    <li ><a routerLink='/userProfile' *ngIf="user != null"> Profile </a></li>
+    <li ><a routerLink='/connect' *ngIf="user == null"> Login </a></li>
 
 
    </ul>

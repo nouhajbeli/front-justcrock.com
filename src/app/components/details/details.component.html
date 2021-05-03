@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <link
   href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
   rel="stylesheet"
@@ -20,7 +21,7 @@
     id="details"
     style="
       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
-        url('https://i-sam.unimedias.fr/2020/07/01/recettes-regime-mediterraneen.jpg');
+        url('https://res.cloudinary.com/dtl8igxn0/image/upload/v1615412080/copie_xkud7i.jpg');
       background-size: cover;
     "
   >
@@ -42,36 +43,95 @@
           <!-- / project-info-box -->
 
           <div class="project-info-box">
-            <p ><b style="color: green; font-weight: bolder; font-size: 15px">Ingrédients:</b></p>
-            <p><b style="color: green; font-weight: bolder; font-size: 15px">Cuisinier:</b> 14.02.2020</p>
-            <p><b style="color: green; font-weight: bolder; font-size: 15px">Temps de préparation:</b> James Doe</p>
-            <p><b style="color: green; font-weight: bolder; font-size: 15px">Temps de cuisson:</b> Illustrator</p>
-            <p class="mb-0"><b style="color: green; font-weight: bolder; font-size: 15px">Ustentils:</b></p>
+            <p ><b style="color: green; font-weight: bolder; font-size: 15px">Ingrédients: </b>{{recette.Ingredient}}</p>
+            <p><b style="color: green; font-weight: bolder; font-size: 15px">Mode de prépartion: </b> {{recette.Preparation}}</p>
+            <p><b style="color: green; font-weight: bolder; font-size: 15px">Temps de préparation: </b> {{recette.temps_Preparation}}</p>
+            <p><b style="color: green; font-weight: bolder; font-size: 15px">Temps de cuisson: </b>{{recette.temps_cuisson}}</p>
+            <p class="mb-0"><b style="color: green; font-weight: bolder; font-size: 15px">Nombre du personnes: </b>{{recette.nombre_personne}}</p>
+            <p><b style="color: green; font-weight: bolder; font-size: 15px">Cuisinier:</b> {{recette.Cuisinier}}</p>
+            <p><b style="color: green; font-weight: bolder; font-size: 15px">Temps de préparation:</b> {{recette.temps_Preparation}}</p>
+            <p><b style="color: green; font-weight: bolder; font-size: 15px">Temps de cuisson:</b> {{recette.temps_cuisson}}</p>
+            <p class="mb-0"><b style="color: green; font-weight: bolder; font-size: 15px">Ustentils:</b>{{recette.Ustensile}}</p>
+            <fieldset class="rating">
+              <input
+                type="radio"
+                [name]="inputName"
+                value="5"
+                [checked]="rating === 5"
+              />
+              <label title="Rocks!" (click)="onClick(5)">5 stars</label>
+              <input
+                type="radio"
+                [name]="inputName"
+                value="4"
+                [checked]="rating === 4"
+              />
+              <label title="Pretty good" (click)="onClick(4)"
+                >4 stars</label
+              >
+
+              <input
+                type="radio"
+                [name]="inputName"
+                value="3"
+                [checked]="rating === 3"
+              />
+              <label title="Meh" (click)="onClick(3)">3 stars</label>
+
+              <input
+                type="radio"
+                [name]="inputName"
+                value="2"
+                [checked]="rating === 2"
+              />
+              <label title="Kinda bad" (click)="onClick(2)">2 stars</label>
+              <input
+                type="radio"
+                [name]="inputName"
+                value="1"
+                [checked]="rating === 1"
+              />
+              <label title="Sucks big time" (click)="onClick(1)"
+                >1 star</label
+              >
+            </fieldset>
+            <br/>
           </div>
           <!-- / project-info-box -->
+          <button *ngIf="userDetails.role==='admin'" [routerLink]="['/edit', recette.Id_recette]" class="btn-edit">edit</button>
+
         </div>
         <!-- / column -->
 
         <div class="col-md-7">
           <img
-            src="assets/uploads/recettes/{{ recette.Photo }}"
+            [src]="recette.Photo"
             class="rounded"
           />
         </div>
+
         <!-- / column -->
       </div>
       <div
         style="
-          background: rgba(204, 204, 204, 0.5);
-          padding: 10%;
+          background: rgb(255, 255, 255);
+          padding: 7%;
           margin-top: 3%;
+          border-radius: 0.3rem;
         "
       >
         <hr class="mb40" />
         <h4 class="mb40 text-uppercase font500">Comments</h4>
         <div class="media mb40" *ngFor="let comment of comments">
-          <i class="d-flex mr-3 fa fa-user-circle-o fa-3x" style="color:white"></i>
-
+          <div *ngFor="let user of users">
+            <img
+              *ngIf="user.id === comment.UserId"
+              [src]="user.imageUrl"
+              class="rounded-circle avatar-xl img-thumbnail"
+              alt="profile-image"
+              style="width: 50px"
+            />
+          </div>
           <div class="media-body">
             <div *ngFor="let user of users">
               <h5
@@ -84,16 +144,17 @@
             {{ comment.commentaire }}
             <i
               class="far fa-trash-alt"
-              *ngIf="userDetails.id === comment.UserId"
+              *ngIf="userDetails.id === comment.UserId || userDetails.role==='admin'"
               (click)="deleteComment(comment.id)"
             ></i>
             <i
               class="fas fa-edit"
-              *ngIf="userDetails.id === comment.UserId"
+              *ngIf="userDetails.id === comment.UserId || userDetails.role==='admin'"
               (click)="change()"
             ></i>
             <form
-              *ngIf="edit && comment.UserId === userDetails.id"
+              *ngIf="edit && comment.UserId === userDetails.id  || edit && userDetails.role==='admin'"
+
               className="edit-comment-form"
             >
               <br />
@@ -134,7 +195,7 @@
               type="submit"
               name="submit"
               class="btn btn-info btn-md"
-              style="background-color: green; border: none"
+              style="background-color: green; border: none ; margin:1% 0;"
               value="Commenter"
             />
           </div>
@@ -146,3 +207,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>

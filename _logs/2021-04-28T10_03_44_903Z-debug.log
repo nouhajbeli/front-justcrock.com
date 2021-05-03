@@ -1,0 +1,87 @@
+0 verbose cli [
+0 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
+0 verbose cli   'C:\\Users\\Yasser Sahli\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+0 verbose cli   'install',
+0 verbose cli   '@nguniversal/express-engine@11.2.1',
+0 verbose cli   '--quiet'
+0 verbose cli ]
+1 info using npm@7.6.3
+2 info using node@v14.16.0
+3 timing config:load:defaults Completed in 1ms
+4 timing config:load:file:C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\npmrc Completed in 1ms
+5 timing config:load:builtin Completed in 1ms
+6 timing config:load:cli Completed in 2ms
+7 timing config:load:env Completed in 1ms
+8 timing config:load:file:C:\Users\Yasser Sahli\Desktop\justcrock.com\front-justcrock.com\.npmrc Completed in 0ms
+9 timing config:load:project Completed in 0ms
+10 timing config:load:file:C:\Users\Yasser Sahli\.npmrc Completed in 1ms
+11 timing config:load:user Completed in 1ms
+12 timing config:load:file:C:\Users\Yasser Sahli\AppData\Roaming\npm\etc\npmrc Completed in 0ms
+13 timing config:load:global Completed in 0ms
+14 timing config:load:cafile Completed in 0ms
+15 timing config:load:validate Completed in 1ms
+16 timing config:load:setUserAgent Completed in 0ms
+17 timing config:load:setEnvs Completed in 1ms
+18 timing config:load Completed in 8ms
+19 verbose npm-session daeb17a334ee4371
+20 timing npm:load Completed in 15ms
+21 timing arborist:ctor Completed in 0ms
+22 timing idealTree:init Completed in 476ms
+23 timing idealTree:userRequests Completed in 6ms
+24 silly idealTree buildDeps
+25 silly fetch manifest @nguniversal/express-engine@11.2.1
+26 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+27 http fetch GET 200 https://registry.npmjs.org/@nguniversal%2fexpress-engine 972ms
+28 silly fetch manifest @angular/common@~11.2.4
+29 http fetch GET 304 https://registry.npmjs.org/@angular%2fcommon 138ms (from cache)
+30 silly fetch manifest @angular/core@~11.2.4
+31 http fetch GET 304 https://registry.npmjs.org/@angular%2fcore 106ms (from cache)
+32 silly fetch manifest rxjs@~6.6.0
+33 http fetch GET 200 https://registry.npmjs.org/rxjs 738ms
+34 silly fetch manifest zone.js@~0.11.3
+35 http fetch GET 304 https://registry.npmjs.org/zone.js 86ms (from cache)
+36 silly fetch manifest @angular/platform-server@^11.2.4
+37 http fetch GET 200 https://registry.npmjs.org/@angular%2fplatform-server 1463ms
+38 silly fetch manifest @angular/animations@~11.2.4
+39 http fetch GET 304 https://registry.npmjs.org/@angular%2fanimations 161ms (from cache)
+40 silly fetch manifest @angular/compiler@~11.2.4
+41 http fetch GET 200 https://registry.npmjs.org/@angular%2fcompiler 1142ms
+42 silly fetch manifest @angular/platform-browser@~11.2.4
+43 http fetch GET 304 https://registry.npmjs.org/@angular%2fplatform-browser 124ms (from cache)
+44 silly fetch manifest @angular/platform-browser-dynamic@~11.2.4
+45 http fetch GET 200 https://registry.npmjs.org/@angular%2fplatform-browser-dynamic 1390ms
+46 silly fetch manifest express@^4.15.2
+47 http fetch GET 200 https://registry.npmjs.org/express 694ms
+48 timing idealTree Completed in 7546ms
+49 timing command:install Completed in 7549ms
+50 verbose stack Error: unable to resolve dependency tree
+50 verbose stack     at Arborist.[failPeerConflict] (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:1157:25)
+50 verbose stack     at Arborist.[placeDep] (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:1256:32)
+50 verbose stack     at C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:851:46
+50 verbose stack     at Array.map (<anonymous>)
+50 verbose stack     at Arborist.[buildDepStep] (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:851:8)
+50 verbose stack     at async Arborist.buildIdealTree (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:209:7)
+50 verbose stack     at async Promise.all (index 1)
+50 verbose stack     at async Arborist.reify (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\reify.js:131:5)
+50 verbose stack     at async Install.install (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\lib\install.js:120:5)
+51 verbose cwd C:\Users\Yasser Sahli\Desktop\justcrock.com\front-justcrock.com
+52 verbose Windows_NT 10.0.18363
+53 verbose argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Yasser Sahli\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "install" "@nguniversal/express-engine@11.2.1" "--quiet"
+54 verbose node v14.16.0
+55 verbose npm  v7.6.3
+56 error code ERESOLVE
+57 verbose stack TypeError: Cannot destructure property 'name' of 'node' as it is null.
+57 verbose stack     at printNode (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\lib\utils\explain-dep.js:29:5)
+57 verbose stack     at explainNode (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\lib\utils\explain-dep.js:13:3)
+57 verbose stack     at explainEresolve (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\lib\utils\explain-eresolve.js:24:24)
+57 verbose stack     at report (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\lib\utils\explain-eresolve.js:50:3)
+57 verbose stack     at module.exports (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\lib\utils\error-message.js:22:24)
+57 verbose stack     at errorHandler (C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\lib\utils\error-handler.js:175:15)
+57 verbose stack     at C:\Users\Yasser Sahli\AppData\Roaming\npm\node_modules\npm\lib\npm.js:114:9
+58 verbose cwd C:\Users\Yasser Sahli\Desktop\justcrock.com\front-justcrock.com
+59 verbose Windows_NT 10.0.18363
+60 verbose argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Yasser Sahli\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "install" "@nguniversal/express-engine@11.2.1" "--quiet"
+61 verbose node v14.16.0
+62 verbose npm  v7.6.3
+63 error Cannot destructure property 'name' of 'node' as it is null.
+64 verbose exit 1

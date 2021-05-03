@@ -1,16 +1,16 @@
 # npm resolution error report
 
-2021-04-24T23:24:52.808Z
+2021-04-28T10:08:44.177Z
 
-While resolving: front-end@0.0.0
-Found: @angular/material@11.2.10
-node_modules/@angular/material
-  @angular/material@"^11.2.4" from the root project
 
 Could not resolve dependency:
-peer @angular/material@"^7.0.0" from @ngmodule/material-carousel@0.6.0
-node_modules/@ngmodule/material-carousel
-  @ngmodule/material-carousel@"^0.6.0" from the root project
+@nguniversal/express-engine@"11.2.1" from the root project
+
+Conflicting peer dependency: @angular/platform-server@11.2.11
+node_modules/@angular/platform-server
+  peer @angular/platform-server@"^11.2.4" from @nguniversal/express-engine@11.2.1
+  node_modules/@nguniversal/express-engine
+    @nguniversal/express-engine@"11.2.1" from the root project
 
 Fix the upstream dependency conflict, or retry
 this command with --force, or --legacy-peer-deps
@@ -20,53 +20,54 @@ Raw JSON explanation object:
 
 {
   "code": "ERESOLVE",
-  "current": {
-    "name": "@angular/material",
-    "version": "11.2.10",
+  "current": null,
+  "currentEdge": null,
+  "edge": {
+    "type": "prod",
+    "name": "@nguniversal/express-engine",
+    "spec": "11.2.1",
+    "error": "MISSING",
+    "from": {
+      "location": "C:\\Users\\Yasser Sahli\\Desktop\\justcrock.com\\front-justcrock.com"
+    }
+  },
+  "peerConflict": {
+    "name": "@angular/platform-server",
+    "version": "11.2.11",
     "whileInstalling": {
       "name": "front-end",
       "version": "0.0.0",
       "path": "C:\\Users\\Yasser Sahli\\Desktop\\justcrock.com\\front-justcrock.com"
     },
-    "location": "node_modules/@angular/material",
+    "location": "node_modules/@angular/platform-server",
     "dependents": [
       {
-        "type": "prod",
-        "name": "@angular/material",
+        "type": "peer",
+        "name": "@angular/platform-server",
         "spec": "^11.2.4",
         "from": {
-          "location": "C:\\Users\\Yasser Sahli\\Desktop\\justcrock.com\\front-justcrock.com"
+          "name": "@nguniversal/express-engine",
+          "version": "11.2.1",
+          "whileInstalling": {
+            "name": "front-end",
+            "version": "0.0.0",
+            "path": "C:\\Users\\Yasser Sahli\\Desktop\\justcrock.com\\front-justcrock.com"
+          },
+          "location": "node_modules/@nguniversal/express-engine",
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@nguniversal/express-engine",
+              "spec": "11.2.1",
+              "from": {
+                "location": "C:\\Users\\Yasser Sahli\\Desktop\\justcrock.com\\front-justcrock.com"
+              }
+            }
+          ]
         }
       }
     ]
   },
-  "edge": {
-    "type": "peer",
-    "name": "@angular/material",
-    "spec": "^7.0.0",
-    "error": "INVALID",
-    "from": {
-      "name": "@ngmodule/material-carousel",
-      "version": "0.6.0",
-      "whileInstalling": {
-        "name": "front-end",
-        "version": "0.0.0",
-        "path": "C:\\Users\\Yasser Sahli\\Desktop\\justcrock.com\\front-justcrock.com"
-      },
-      "location": "node_modules/@ngmodule/material-carousel",
-      "dependents": [
-        {
-          "type": "prod",
-          "name": "@ngmodule/material-carousel",
-          "spec": "^0.6.0",
-          "from": {
-            "location": "C:\\Users\\Yasser Sahli\\Desktop\\justcrock.com\\front-justcrock.com"
-          }
-        }
-      ]
-    }
-  },
-  "peerConflict": null,
   "strictPeerDeps": false,
   "force": false
 }

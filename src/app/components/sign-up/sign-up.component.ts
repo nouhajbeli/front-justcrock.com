@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SignUpService} from './../../services/sign-up.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,8 +15,11 @@ email:any;
 password:any;
 registerForm: any;
 submitted = false;
-role:any="user"
-  constructor(private myService: SignUpService,private formBuilder: FormBuilder,private router:Router) { }
+role:any="user";
+serverErrorMessages:any;
+showSuccessMessage:any
+
+  constructor(private myService: SignUpService,private formBuilder: FormBuilder,private router:Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -25,24 +29,7 @@ role:any="user"
       role:['user']
   });
   }
-  adduser() {
 
-
-    this.myService
-      .addService(
-        this.FullName,
-        this.email,
-        this.password,
-        this.role
-    )
-      .subscribe((data) => {
-        console.log("user added", data)
-        this.router.navigateByUrl('/login')
-
-
-
-      })
-    }
     get f() { return this.registerForm.controls; }
 
     onSubmit() {
@@ -52,8 +39,24 @@ role:any="user"
       if (this.registerForm.invalid) {
           return;
       }
-      this.adduser()
-      // display form values on success
+      this.myService
+      .addService(
+        this.FullName,
+        this.email,
+        this.password,
+        this.role
+    )
+      .subscribe( (res:any)  =>{
+        setTimeout(()=>this.showSuccessMessage=false,4000)
+      this.router.navigateByUrl('/connect')
+    },
+      err =>{
+        if(err.status=== 409)
+        this.toastr.error(err.error.error)
+        else
+        this.toastr.error('something went wrong .Please contact admin')
+
+      })
   }
 
 }

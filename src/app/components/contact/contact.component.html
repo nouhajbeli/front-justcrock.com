@@ -1,22 +1,38 @@
+<app-navbar></app-navbar>
 <section   class="contact" id="contact">
-  <div class="title">
-    <h2 class="titleText" ><span>N</span>ous contacter</h2>
-  </div>
-  <div class="contactForm">
-  <h3>Envoyer Un Message</h3>
-  <div class="inputBox">
-    <input type='text' placeholder="Nom">
-  </div>
-  <div class="inputBox">
-    <input type='text' placeholder="Email">
-  </div>
-  <div class="inputBox">
-    <textarea  placeholder="Message"></textarea>
-  </div>
-  <div class="inputBox">
-    <input type="submit" value="envoyer">
-  </div>
-  <br/><br/><br/>
+  <div class="card m-3">
+    <h5 class="card-header" style="font-weight: bolder; color: rgb(6, 156, 6);">Nous contacter</h5>
+    <div class="card-body">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>nom</label>
+            <input type="text" formControlName="nom" class="form-control" />
+
+        </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Ajouter votre email</div>
+                    <div *ngIf="f.email.errors.email">vous devez entrer une adress mail valide</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>message</label>
+                    <input type="text" formControlName="message" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.message.errors }" />
+                    <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+                        <div *ngIf="f.message.errors.required">Ecrire quelque chose ...</div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mr-1" style="background-color: rgb(5, 141, 5);border: none;">Envoyer</button>
+                <div class="success" *ngIf="showSuccessMessage" style="color:green ">Email envoyer</div>
+
+            </div>
+        </form>
+    </div>
   </div>
 </section>
-
+<app-footer></app-footer>

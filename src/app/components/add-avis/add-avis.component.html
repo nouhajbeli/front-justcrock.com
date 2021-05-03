@@ -1,0 +1,44 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<app-navbar></app-navbar>
+
+<div
+  id="add"
+  style="
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+      url('https://res.cloudinary.com/dtl8igxn0/image/upload/v1615412080/copie_xkud7i.jpg');
+    background-size: cover; padding : 10%
+  "
+>
+<div>
+  <form *ngIf="this.ajoutForm" [formGroup]="ajoutForm"
+(ngSubmit)="addAvis()" class="row g-3" style="margin:0 10%; padding: 10%; background-color: rgb(255, 255, 255); border-radius: 0.2rem;">
+
+
+<div class="form-group">
+  <label> Ajouter Avis</label>
+  <textarea
+    class="form-control"
+    rows="5"
+    cols="70"
+    formControlName="avis"
+    [ngClass]="{ 'is-invalid': submitted && f.avis.errors }"
+    id="avis"
+    class="form-control"
+    required
+  ></textarea>
+</div>
+
+
+
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary"     style="background-color: #288b16; border:none;width:100%"
+    >Ajouter</button>
+  </div>
+</form>
+</div>
+</div>
+<app-footer></app-footer>

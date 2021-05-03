@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <link
   href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
   rel="stylesheet"
@@ -7,93 +8,60 @@
   id="add"
   style="
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
-      url('https://i-sam.unimedias.fr/2020/07/01/recettes-regime-mediterraneen.jpg');
-    background-size: cover;
+      url('https://res.cloudinary.com/dtl8igxn0/image/upload/v1615412080/copie_xkud7i.jpg');
+    background-size: cover; padding : 10%
   "
 >
-<form [formGroup]="loginForm"
-(ngSubmit)="addrecette()">
-<div class="form-group">
-  <label
-    for="description"
-    class="text-info"
-    style="color: #42b32f"
-    >Description:</label
-  ><br />
-  <textarea
-    rows="2"
-    cols="30"
-    name="description"
-    formControlName="description"
-    id="description"
-
-  >
-  </textarea>
-
-</div>
-<div class="form-group">
-  <label
-    for="temps_Préparation"
-    class="text-info"
-    style="color: #42b32f"
-    >temps_Préparation:</label
-  ><br />
-  <textarea
-    rows="2"
-    cols="30"
-    name="temps_Préparation"
-    formControlName="temps_Préparation"
-  >
-  </textarea>
-</div>
-<div class="form-group">
-  <label
-    for="temps_cuisson"
-    class="text-info"
-    style="color: #42b32f"
-    >temps_cuisson:</label
-  ><br />
-  <textarea
-    rows="2"
-    cols="30"
-    name="temps_cuisson"
-    formControlName="temps_cuisson"
-  >
-  </textarea>
-</div>
-<div class="form-group">
-  <label
-    for="nombre_personne"
-    class="text-info"
-    style="color: #42b32f"
-    >nombre_personne:</label
-  ><br />
-  <textarea
-    rows="2"
-    cols="30"
-    name="nombre_personne"
-    formControlName="nombre_personne"
-  >
-  </textarea>
-</div>
-<div class="form-group">
-  <label for="image" class="text-info">Image:</label>
-  <input
-    formControlName="image"
-    (change)="onSelectimage($event)"
-    type="file"
-    name="image"
-    accept="image/png, image/jpeg"
-  />
-</div>
-<div class="form-group">
-  <input
-    type="submit"
-    name="submit"
-    class="btn btn-info btn-md"
-    style="background-color: #42b32f"
-    value="Ajouter"
-     />
-</div>
+<div>
+  <form [formGroup]="loginForm"
+(ngSubmit)="addrecette()" class="row g-3" style="margin:0 10%; padding: 10%; background-color: rgb(255, 255, 255); border-radius: 0.2rem;">
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label" style="color: black ; font-weight:bolder;">Description:</label>
+    <input type="email" class="form-control" id="inputEmail4"     formControlName="description"
+    >
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label" style="color: black ; font-weight:bolder;">Ingrédients</label>
+    <input type="text" class="form-control" id="inputPassword4"     formControlName="ingredient"
+    >
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label" style="color: black ; font-weight:bolder;">Mode de préparation:</label>
+    <input type="email" class="form-control" id="inputEmail4"       formControlName="preparation"
+    >
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label" style="color: black ; font-weight:bolder;">Temps de Préparation:</label>
+    <input type="text" class="form-control" id="inputPassword4"     formControlName="temps_Preparation"
+    >
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label" style="color: black ; font-weight:bolder;">Temps de cuisson:</label>
+    <input type="email" class="form-control" id="inputEmail4"      formControlName="temps_cuisson"
+    >
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label" style="color: black ; font-weight:bolder;">Nombre de personne:</label>
+    <input type="text" class="form-control" id="inputPassword4"     formControlName="nombre_personne"
+    >
+  </div>
+  <div class="form-group">
+    <label for="image"style="color: black ; font-weight:bolder;"
+    >Image:</label>
+    <input
+      formControlName="image"
+      (change)="onSelectimage($event)"
+      type="file"
+      name="image"
+      style="padding:1%;"
+      accept="image/png, image/jpeg"
+    />
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary"     style="background-color: #288b16; border:none;width:100%"
+    >Ajouter</button>
+  </div>
 </form>
 </div>
+</div>
+<app-footer></app-footer>

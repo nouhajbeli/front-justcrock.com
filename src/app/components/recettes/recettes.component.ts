@@ -2,68 +2,84 @@ import { Component, OnInit } from '@angular/core';
 import {RecetteService} from './../../services/recette.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import {UserService} from './../../services/user.service'
+import { Profile } from './user-profile.model';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Title, Meta } from '@angular/platform-browser';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Injectable } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-recettes',
   templateUrl: './recettes.component.html',
   styleUrls: ['./recettes.component.css']
 })
+@Injectable()
 export class RecettesComponent implements OnInit {
   myArray: any = [];
   file: any;
   categorie:any
+  serverErrorMessages:any;
+  userDetails:Profile;
+  rates:any;
+   recettes:any=[];
+   p:any;
+  constructor(config: NgbModalConfig, private modalService: NgbModal ,private titleService: Title,
+    private metaTagService: Meta,private myService: RecetteService,private userService:UserService,private sanitizer: DomSanitizer, private router: Router
+    ) {
 
-  constructor(private myService: RecetteService,private sanitizer: DomSanitizer, private router: Router
-    ) { }
+      config.backdrop = 'static';
+      config.keyboard = false;
+      this.userDetails = new Profile();
+
+    }
 
   ngOnInit(): void {
-   this.getRecette()
+    this.titleService.setTitle('toutes les recettes');
+    this.metaTagService.updateTag({
+      name:'description', content:'des recettes halal - food halal '
+    });
+    this.metaTagService.updateTag({
+      name:'keywords', content:'recttes recipe halal islam food pates salades gateaux salés sucrés'
+    })
+    this.myService.getServiceRates().subscribe((res:any)=>{
+      this.rates=res
+    })
+    this.getRecette()
+
+   this.userService.getUserProfile().subscribe((data:any)=>{
+    this.userDetails=data.user
+  })
+
 
   }
-  getfile(f: any) {
-    this.file = '';
-    this.file = this.sanitizer.bypassSecurityTrustResourceUrl(
-      'assets/uploads/recettes/' + f
-    );
-    console.log(f);
-
+  open(content:any) {
+    this.modalService.open(content);
   }
+
   deleteRecette(id: string) {
     console.log(id);
 
     this.myService
       .deleteService(id)
-
       .subscribe((data) => {
         console.log(data)
-        return this.getRecette();
-      });
+        this.getRecette();
+        location.reload();
+        // this.router.navigate(['recette'])
+       })
   }
   getRecette(){
-    console.log('categorie',this.categorie)
+
     this.myService.getService().subscribe((data:any) => {
-      console.log(data);
-     if(this.categorie==='Entrée'){
-      this.myArray =data.filter((recette:any) => recette.categorie === 'Entrée')
-     }else if(this.categorie ==='Plat Principal'){
-      this.myArray =data.filter((recette :any)=> recette.categorie === 'Plat Principal')
-
-     }else if(this.categorie === 'Patisseries Recettes'){
-      this.myArray =data.filter((recette:any )=> recette.categorie === 'Patisseries Recettes')
-
-     }else {
       this.myArray = data;
+    })
 
-     }
-    });
   }
 
-  handleClick(event: Event) {
-    console.log('Click!', event.target)
-    this.categorie=(event.currentTarget  as HTMLButtonElement).value
-    console.log(this.categorie)
-    this.getRecette()
-  }
+
   getrecette(id:any){
     this.router.navigate(['details',  { id: id }]).then(() => {
       location.reload();

@@ -5,3 +5,12 @@ f3a5144b43dd9e5c42788abc0eb8f50c9022a036	{"key":"make-fetch-happen:request-cache
 c55d21ac1cdf22309fff4acd849062ac75b04b37	{"key":"make-fetch-happen:request-cache:https://registry.npmjs.org/-/npm/v1/security/advisories/bulk","integrity":null,"time":1619269302670}
 8b985dc02c1fa45a1f5f68f1caf18c06cd962250	{"key":"make-fetch-happen:request-cache:https://registry.npmjs.org/-/npm/v1/security/advisories/bulk","integrity":null,"time":1619306674729}
 4886b3b26f6dad2df0251729417c8ff4de7af4af	{"key":"make-fetch-happen:request-cache:https://registry.npmjs.org/-/npm/v1/security/advisories/bulk","integrity":null,"time":1619348998570}
+4014993cb66e82f7fbee494724b720d9e6b8a198	{"key":"make-fetch-happen:request-cache:https://registry.npmjs.org/-/npm/v1/security/advisories/bulk","integrity":null,"time":1619477781334}
+abbd1d4e1743291ce4c107bbfcd49aebb1e7a0ff	{"key":"make-fetch-happen:request-cache:https://registry.npmjs.org/-/npm/v1/security/advisories/bulk","integrity":null,"time":1619480684353}
+2d4303481ad33d21bc1053240f392389b4414feb	{"key":"make-fetch-happen:request-cache:https://registry.npmjs.org/-/npm/v1/security/advisories/bulk","integrity":null,"time":1619480696125}
+fe316cf2e79e9d8c51ff9ccd9e1db723a28806e4	{"key":"make-fetch-happen:request-cache:https://registry.npmjs.org/-/npm/v1/security/advisories/bulk","integrity":null,"time":1619502698929}
+be63a9015e7aad717d8da07c8beff9b7dffc7be2	{"key":"make-fetch-happen:request-cache:https://registry.npmjs.org/-/npm/v1/security/advisories/bulk","integrity":null,"time":1619515657536}
+d39c319c617353496236e37569dc010ff14b0d0b	{"key":"make-fetch-happen:request-cache:https://registry.npmjs.org/-/npm/v1/security/advisories/bulk","integrity":null,"time":1619604448712}
+b16bbeee4802b79604397e90c0507f38877f3a54	{"key":"make-fetch-happen:request-cache:https://registry.npmjs.org/-/npm/v1/security/advisories/bulk","integrity":null,"time":1619604886971}
+33debe4b8aea89d0ac8a9ef1512fc9026bbb927d	{"key":"make-fetch-happen:request-cache:https://registry.npmjs.org/-/npm/v1/security/advisories/bulk","integrity":null,"time":1619614123070}
+9a4d70b3589149a3f8d0a2c33806fefe310da543	{"key":"make-fetch-happen:request-cache:https://registry.npmjs.org/-/npm/v1/security/advisories/bulk","integrity":null,"time":1620008824828}

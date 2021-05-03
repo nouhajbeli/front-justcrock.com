@@ -1,13 +1,71 @@
+@media (max-width: 400px) {
+  .chat_window {
+    padding: 10%;
+    position: absolute;
+    width: calc(100% - 40px);
+    height: 90%;
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 150px;
+    left: 10%;
+    top: 30%;
+  /* margin-bottom: 40%; */
+   transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: #f8f8f8;
+    overflow: hidden;
+    background-size: cover;
+    /* margin-top:10px; */
+  }
+  .but {
+    width: 100px;
+    height: 10px;
+    display: inline-block;
+    background-color: #578613;
+    border: 2px solid #578a10;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    text-align: center;
+    border-radius: 0.2rem;
+  }
+  .inputs {
+    margin: 15%;
+    width: 70vw;
+    bottom: 0;
+  }
+  .message-input {
+    width: 70%;
+    height: 20px;
+    font-size: 15px;
+    margin-bottom: 0%;
+  }
+  .bottom_wrapper .send_message {
+    width: 30%;
+    height: 20px;
+    display: inline-block;
+    background-color: #6fa523;
+    border: 2px solid #6fa523;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    text-align: center;
+  padding: 1%;
+  margin: 1% 20%;}
+  .title{
+    font-size:10px;
+  }
+}
+
 .chat-app {
   width: 100%;
-  height: 100vh;
-
+  height: 80vh;
   border-top: 2px solid black;
 
 }
 
-.message {
 
+.message {
   font-size: 18px;
   padding: 20px;
 }
@@ -21,13 +79,12 @@
 #username-input {
   width: 27%;
   height: 40px;
-  font-size:20px;
+  font-size: 20px;
 }
 .inputs {
-  margin:15%;
+  margin: 15%;
   width: 100vw;
   bottom: 0;
-
 }
 .message-input {
   width: 70%;
@@ -39,43 +96,27 @@
   height: auto;
 } */
 body {
-
-  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://res.cloudinary.com/dtl8igxn0/image/upload/v1615412080/copie_xkud7i.jpg');
-  background-size:cover;
-width: 100%;
-height:100%
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://res.cloudinary.com/dtl8igxn0/image/upload/v1615412080/copie_xkud7i.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 80%;
 }
-.but{
-  width: 140px;
-  height: 50px;
+.but {
+  width: 120px;
+  height: 30px;
   display: inline-block;
-  background-color: #6fa523;
-  border: 2px solid #6fa523;
+  background-color: #578613;
+  border: 2px solid #578a10;
   color: #fff;
   cursor: pointer;
   transition: all 0.2s linear;
   text-align: center;
+  border-radius: 0.2rem;
 }
 
-.chat_window {
-  position: absolute;
-  width: calc(100% - 20px);
-  max-width: 70%;
-  height: 90%;
-  border-radius: 10px;
-  background-color: #fff;
-  left: 40%;
-  top: 50%;
-  margin: 150px;
-  transform: translateX(-50%) translateY(-50%);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  background-color: #f8f8f8;
-  overflow: hidden;
-  background-size: cover;
-  margin-top:150px;
-  /* margin-bottom:80px; */
 
-}
 .top_menu {
   background-color: #fff;
   width: 100%;
@@ -106,16 +147,9 @@ height:100%
 .top_menu .title {
   text-align: center;
   color: #393635;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
 }
-
-
-
-
-
-
-
 
 .bottom_wrapper {
   position: fixed;
@@ -136,8 +170,8 @@ height:100%
   color: rgb(233, 224, 224);
 }
 .bottom_wrapper .send_message {
-  width: 140px;
-  height: 50px;
+  width: 30%;
+  height: 20px;
   display: inline-block;
   background-color: #6fa523;
   border: 2px solid #6fa523;
@@ -152,7 +186,7 @@ height:100%
   background-color: #fff;
 }
 .bottom_wrapper .send_message .text {
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 300;
   display: inline-block;
   line-height: 48px;
@@ -160,4 +194,149 @@ height:100%
 
 .message_template {
   display: none;
+}
+
+@media screen and (min-width: 800px) {
+  .chat-app {
+    width: 100%;
+    height: 100vh;
+
+    border-top: 2px solid black;
+  }
+
+  .message {
+    font-size: 15px;
+    padding: 20px;
+  }
+  .message:nth-child(2n) {
+    background-color: #ccc9c9;
+  }
+  #username-div {
+    text-align: center;
+  }
+
+  #username-input {
+    width: 27%;
+    height: 40px;
+    font-size: 20px;
+  }
+  .inputs {
+    margin: 15%;
+    width: 100vw;
+    bottom: 0;
+  }
+  .message-input {
+    width: 70%;
+    height: 40px;
+    font-size: 19px;
+    margin-bottom: 0%;
+  }
+  /* .bottom{
+    height: auto;
+  } */
+  body {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("https://res.cloudinary.com/dtl8igxn0/image/upload/v1615412080/copie_xkud7i.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 80%;
+  }
+
+
+  .chat_window {
+    position: absolute;
+    width: calc(80% - 20px);
+    max-width: 70%;
+    height: 90%;
+    left: 40%;
+    top: 35%;
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 150px;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: #f8f8f8;
+    overflow: hidden;
+    background-size: cover;
+    /* margin-top:10px; */
+  }
+  .top_menu {
+    background-color: #fff;
+    width: 100%;
+    padding: 20px 0 15px;
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+  }
+  .top_menu .buttons {
+    margin: 3px 0 0 20px;
+    position: absolute;
+  }
+  .top_menu .buttons .button {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+  }
+  .top_menu .buttons .button.close {
+    background-color: #d33811;
+  }
+  .top_menu .buttons .button.minimize {
+    background-color: #40b1ca;
+  }
+  .top_menu .buttons .button.maximize {
+    background-color: #6fa523;
+  }
+  .top_menu .title {
+    text-align: center;
+    color: #393635;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .bottom_wrapper {
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 20px;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .bottom_wrapper .message_input_wrapper .message_input {
+    border: none;
+    height: 100%;
+    box-sizing: border-box;
+    width: calc(100% - 40px);
+    position: absolute;
+    outline-width: 0;
+    color: rgb(233, 224, 224);
+  }
+  .bottom_wrapper .send_message {
+    width: 140px;
+    height: 50px;
+    display: inline-block;
+    background-color: #6fa523;
+    border: 2px solid #6fa523;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    text-align: center;
+    float: right;
+  }
+  .bottom_wrapper .send_message:hover {
+    color: #a3d063;
+    background-color: #fff;
+  }
+  .bottom_wrapper .send_message .text {
+    font-size: 18px;
+    font-weight: 300;
+    display: inline-block;
+    line-height: 48px;
+  }
+
+  .message_template {
+    display: none;
+  }
 }

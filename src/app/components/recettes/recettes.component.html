@@ -1,61 +1,91 @@
-
 <!------ Include the above in your HEAD tag ---------->
-
+<app-navbar></app-navbar>
 <section>
-<section>
-
-<div id="body">
-<div class="container"  >
-        <div class="row">
-          <br/><br/><br/><br/>
+  <div id="body">
+    <div class="container">
+      <div class="row">
+        <br />
         <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <br/><br/><br/>
-           <h1 class="gallery-title">Recettes</h1>
+          <br /><br /><br />
+          <h1 class="gallery-title">Recettes</h1>
         </div>
 
-        <div  class='nav' style="text-align:center">
-            <button class="btn btn-default filter-button" data-filter="all" value="All"   (click)="handleClick($event)">Tous les recettes</button>
-            <button class="btn btn-default filter-button" data-filter="hdpe" value="Entrée" (click)="handleClick($event)">Entrée</button>
-            <button class="btn btn-default filter-button" data-filter="sprinkle" value="Plat Principal" (click)="handleClick($event)">Plat Principal</button>
-            <button class="btn btn-default filter-button" data-filter="spray" value="Patisseries Recettes" (click)="handleClick($event)">Patisseries Recettes</button>
-            <button class="btn btn-default filter-button" data-filter="spray"  routerLink='/addrecette'><i class="fa fa-plus" aria-hidden="true"></i>
-            </button>
+        <button
+          class="btn1"
+          routerLink="/addrecette"
+          *ngIf="userDetails.role === 'admin'"
+        >
+          Ajouter recette <i class="fa fa-plus"></i>
+        </button>
 
-        </div>
-        <br/><br/>
-        <br/><br/>
+        <br /><br />
+        <br /><br />
       </div>
 
-
       <div class="row">
-        <br/>
+        <br />
 
-        <div class="col-12 col-md-6 col-lg-3" *ngFor="let recette of  myArray">
-          <div class="card" style="border:1px solid white"
-          >
-
-            <img [routerLink]="['/details', recette.Id_recette]"
-           
-              src="assets/uploads/recettes/{{recette.Photo}}"
+        <div
+          class="col-12 col-md-6 col-lg-3"
+          *ngFor=" let recette of  myArray | paginate: { itemsPerPage: 4, currentPage: p } "
+        >
+          <div class="card recette" style="border: 1px solid white">
+            <img
+              [routerLink]="['/details', recette.Id_recette]"
+              [src]="recette.Photo"
               class="card-img-top"
-              alt="..." style="width:100%; height: 120px;"
+              alt="..."
+              style="width: 100%; height: 200px"
             />
             <div class="card-body">
+              <ngb-rating
+                [(rate)]="recette.averagerate"
+                [max]="5"
+                style="font-size: 20px; color: #ffc107"
+                [readonly]="true"
+              ></ngb-rating>
+            
+              <ng-template #content let-c="close" let-d="dismiss">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">Confirmation!</h4>
 
-              <p class="card-text" style="color:white">
-              {{recette.Description}}
-              </p>
+                  <!-- <button type="button" class="close" aria-label="Close" (click)="('Save click')"> -->
+                  <!-- </button> -->
+                </div>
+                <div class="modal-body">
+                  <p>cette recette va etre supprimer deffinitivement , etes vous sur ?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-dark" (click)="deleteRecette(recette.Id_recette)">Supprimer</button>
+                  <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Annuler/fermer</button>
 
-            <a style="margin-left:200px; background: #42B32F" (click)="deleteRecette(recette.Id_recette)"><i class="fas fa-trash-alt"></i></a>
-            <br/>
+                </div>
+              </ng-template>
+              <a
+                style="margin-left: 200px; background: #42b32f"
+                (click)="open(content)"
+                ><i
+                  class="fas fa-trash-alt"
+                  *ngIf="userDetails.role === 'admin'"
+                ></i
+              ></a>
+              <br />
             </div>
           </div>
+          <div></div>
+        </div>
+        <div
+          style="
+            margin: auto;
+            width: 50%;
 
-
-
+            padding: 10px;
+          "
+        >
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
   </div>
-  </div>
-  </div>
-  </div>
-  </section>
 </section>
+<app-footer></app-footer>
